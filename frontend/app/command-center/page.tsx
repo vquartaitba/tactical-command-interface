@@ -162,7 +162,7 @@ export default function CommandCenterPage() {
                 <span># ANÁLISIS DE RIESGO - 30/08/2025</span>
               </div>
               <div className="text-white">&gt; SALUD DEL PORTAFOLIO: ESTABLE</div>
-              <div className="text-green-500">&gt; PREDICCIÓN DE MORA: 6.8%</div>
+              <div className="text-green-500">&gt; PREDICCIÓN DE MORA: 2.3%</div>
               <div className="text-white">&gt; CONFIANZA: 94.2%</div>
               <div className="text-neutral-400">&gt; RECOMENDACIÓN: MANTENER UMBRALES</div>
             </div>
@@ -176,10 +176,10 @@ export default function CommandCenterPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[70px]">
+            <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[140px] md:max-h-[180px]">
               <PieChart>
                 <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-                <Pie data={chartData} dataKey="usuarios" nameKey="label" innerRadius={16} strokeWidth={1}>
+                <Pie data={chartData} dataKey="usuarios" nameKey="label" innerRadius={40} strokeWidth={1}>
                   <Label
                     content={({ viewBox }) => {
                       if (viewBox && "cx" in viewBox && "cy" in viewBox) {
@@ -283,11 +283,31 @@ export default function CommandCenterPage() {
                 <div className="p-3 bg-neutral-800 rounded">
                   <div className="flex items-center justify-between text-sm"><span className="text-neutral-400">Riesgo</span><span className="text-white font-mono">{selectedUser.riesgo.toUpperCase()}</span></div>
                 </div>
+                <div className="p-3 bg-neutral-800 rounded md:col-span-2">
+                  <div className="flex items-center justify-between text-sm"><span className="text-neutral-400">Wallet</span><span className="text-white font-mono">{selectedUser.walletAddress || "—"}</span></div>
+                </div>
+                <div className="p-3 bg-neutral-800 rounded md:col-span-2">
+                  <div className="flex items-center justify-between text-sm"><span className="text-neutral-400">ENS</span><span className="text-white font-mono">{selectedUser.ensName || "—"}</span></div>
+                </div>
               </div>
               <div className="p-3 bg-neutral-800 rounded">
                 <div className="text-xs text-neutral-400 mb-2">Perfil de crédito (radar)</div>
                 <ChartContainer config={{}} className="mx-auto aspect-square max-h-[300px]">
-                  <RadarChart data={[{axis:"Pagos",score:96},{axis:"Utilización",score:59},{axis:"Antigüedad",score:72},{axis:"Mix",score:65},{axis:"Consultas",score:80},{axis:"Cripto",score:68},{axis:"DApps",score:72},{axis:"Contrapartes",score:85},{axis:"Liquidaciones",score:92},{axis:"Ratios deuda",score:76},{axis:"Inv./Activos",score:64},{axis:"Confiab. activos",score:70}]} outerRadius={100}>
+                  <RadarChart data={[
+                    {axis:"Payment history (35%)",score:96},
+                    {axis:"Credit utilization (30%)",score:59},
+                    {axis:"Credit age (15%)",score:72},
+                    {axis:"Credit mix (10%)",score:65},
+                    {axis:"Credit inquiries (10%)",score:80},
+                    {axis:"Total asset",score:68},
+                    {axis:"DApp interactions",score:72},
+                    {axis:"Tx otras wallets",score:85},
+                    {axis:"Liquidation history",score:92},
+                    {axis:"Loan ratios",score:76},
+                    {axis:"Investment/Total asset",score:64},
+                    {axis:"Trustworthiness assets",score:70},
+                    {axis:"Wallet clustering",score:60},
+                  ]} outerRadius={100}>
                     <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
                     <PolarAngleAxis dataKey="axis" tick={{ fill: "#a3a3a3", fontSize: 12 }} tickLine={false} />
                     <PolarGrid />

@@ -12,6 +12,8 @@ export interface PeopleRequest {
   riesgo: RiskLevel
   kyc: KyCStatus
   fuentes: Array<"on-chain" | "off-chain">
+  walletAddress?: string
+  ensName?: string
 }
 
 // Fuente única de verdad para solicitudes de historial crediticio (People)
@@ -27,6 +29,8 @@ export const peopleRequests: PeopleRequest[] = [
     riesgo: "bajo",
     kyc: "verificado",
     fuentes: ["on-chain", "off-chain"],
+    walletAddress: "0x4521...a1b2",
+    ensName: "user4521.eth",
   },
   {
     id: "REQ-2025-0911",
@@ -39,6 +43,8 @@ export const peopleRequests: PeopleRequest[] = [
     riesgo: "medio",
     kyc: "pendiente",
     fuentes: ["off-chain"],
+    walletAddress: "0x4520...c3d4",
+    ensName: "user4520.eth",
   },
   {
     id: "REQ-2025-0910",
@@ -51,6 +57,8 @@ export const peopleRequests: PeopleRequest[] = [
     riesgo: "alto",
     kyc: "rechazado",
     fuentes: ["off-chain"],
+    walletAddress: "0x4519...e5f6",
+    ensName: "user4519.eth",
   },
   {
     id: "REQ-2025-0909",
@@ -63,6 +71,8 @@ export const peopleRequests: PeopleRequest[] = [
     riesgo: "bajo",
     kyc: "verificado",
     fuentes: ["on-chain", "off-chain"],
+    walletAddress: "0x4518...09ab",
+    ensName: "user4518.eth",
   },
 ]
 

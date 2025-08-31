@@ -126,43 +126,7 @@ export default function UsersPage() {
         </Card>
       </div>
 
-      <Card className="bg-neutral-900 border-neutral-700">
-        <CardHeader>
-          <CardTitle className="text-sm font-medium text-neutral-300 tracking-wider">RESUMEN RÁPIDO</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="flex items-center justify-between p-3 bg-neutral-800 rounded">
-              <div>
-                <p className="text-xs text-neutral-400">TOTAL USUARIOS</p>
-                <p className="text-xl font-bold text-white font-mono">18,452</p>
-              </div>
-              <Users className="w-6 h-6 text-white" />
-            </div>
-            <div className="flex items-center justify-between p-3 bg-neutral-800 rounded">
-              <div>
-                <p className="text-xs text-neutral-400">KYC VERIFICADO</p>
-                <p className="text-xl font-bold text-green-500 font-mono">86%</p>
-              </div>
-              <IdCard className="w-6 h-6 text-green-500" />
-            </div>
-            <div className="flex items-center justify-between p-3 bg-neutral-800 rounded">
-              <div>
-                <p className="text-xs text-neutral-400">RIESGO BAJO</p>
-                <p className="text-xl font-bold text-white font-mono">62%</p>
-              </div>
-              <CheckCircle className="w-6 h-6 text-white" />
-            </div>
-            <div className="flex items-center justify-between p-3 bg-neutral-800 rounded">
-              <div>
-                <p className="text-xs text-neutral-400">RIESGO ALTO</p>
-                <p className="text-xl font-bold text-red-500 font-mono">9%</p>
-              </div>
-              <XCircle className="w-6 h-6 text-red-500" />
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+      {/* RESUMEN RÁPIDO removido por requerimiento */}
 
       <Card className="bg-neutral-900 border-neutral-700">
         <CardHeader>
@@ -279,18 +243,21 @@ function ProgressRow({ label, value, color }: { label: string; value: number; co
 
 function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: () => void }) {
   const radarData = [
-    { axis: "Pagos (35%)", value: 96 },
-    { axis: "Utilización (30%)", value: 59 },
-    { axis: "Antigüedad (15%)", value: 72 },
-    { axis: "Mix (10%)", value: 65 },
-    { axis: "Consultas (10%)", value: 80 },
-    { axis: "Activos cripto", value: 68 },
-    { axis: "DApps", value: 72 },
-    { axis: "Contrapartes", value: 85 },
-    { axis: "Liquidaciones", value: 92 },
-    { axis: "Ratios deuda", value: 76 },
-    { axis: "Inversión/Activos", value: 64 },
-    { axis: "Confiab. activos", value: 70 },
+    // Off-chain (FICO)
+    { axis: "Payment history (35%)", value: 96 },
+    { axis: "Credit utilization (30%)", value: 59 },
+    { axis: "Credit age (15%)", value: 72 },
+    { axis: "Credit mix (10%)", value: 65 },
+    { axis: "Credit inquiries (10%)", value: 80 },
+    // On-chain (Crypto)
+    { axis: "Total asset", value: 68 },
+    { axis: "DApp interactions", value: 72 },
+    { axis: "Tx otras wallets", value: 85 },
+    { axis: "Liquidation history", value: 92 },
+    { axis: "Loan ratios", value: 76 },
+    { axis: "Investment/Total asset", value: 64 },
+    { axis: "Trustworthiness assets", value: 70 },
+    { axis: "Wallet clustering", value: 60 },
   ]
   const radarConfig = {
     score: {
@@ -334,6 +301,12 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
             </div>
             <div className="p-3 bg-neutral-800 rounded">
               <SectionRow label="Riesgo" value={selected.riesgo.toUpperCase()} />
+            </div>
+            <div className="p-3 bg-neutral-800 rounded md:col-span-2">
+              <SectionRow label="Wallet" value={selected.walletAddress || "—"} />
+            </div>
+            <div className="p-3 bg-neutral-800 rounded md:col-span-2">
+              <SectionRow label="ENS" value={selected.ensName || "—"} />
             </div>
           </div>
 
