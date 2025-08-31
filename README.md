@@ -64,6 +64,15 @@ Construimos un **sistema unificado de identidad y reputación crediticia** que c
 
 ---
 
+## 📜 Contratos desplegados
+
+| Componente / Rol                     | Red (chain)              | Dirección |
+|-------------------------------------|--------------------------|-----------|
+| **ZEMA Core (cálculo/score)**       | Zama / fhEVM (ZEMA)      | `0x59A3b5AfB6bACdbEc53bc1aB13af08e20db2748c` |
+| **CID Registry (vínculo a IPFS)**   | Filecoin EVM             | `0x749777126B405832d92520Ec94D22B9685595027` |
+| **Score SBT / NFT**                 | Lisk EVM                 | `0x686BABbCa7924470f8c4343C6b4b702a0e0Bb5eb` |
+
+
 ## ⚙️ **Por qué elegimos cada tecnología**
 
 * **Lisk** → Plataforma accesible para identidad y SBTs, con gran enfoque en usabilidad y adopción de dApps. Perfecta para representar identidad y reputación en tokens no transferibles.
