@@ -22,6 +22,8 @@ The solution is structured around three fundamental pillars:
 
 - **Real-World Data:** Through the Flare State Connector, the platform securely queries APIs from authorized sources (banks, telcos, services) to obtain the necessary data for analysis. This ensures the score is based on verifiable information, not self-declared data.
 
+- **Wallet Clustering & Risk Signals:** We analyze on-chain relationships to detect wallets that are highly related and likely controlled by the same person using clustering algorithms and heuristics. This helps prevent hidden risk (e.g., undeclared wallets with prior delinquency). Using the resulting wallets, we compute indicators such as payment history, on-chain income, account age, usage diversity, and more—then enrich these with off-chain data to build the model’s input features.
+
 - **Private AI Calculation:** Here lies the main innovation. The collected data is sent to the Zama network (fhEVM), where a Machine Learning model calculates the score. Thanks to Fully Homomorphic Encryption (FHE), the entire process is performed on encrypted data. Neither the AI nor any intermediary ever sees the user's sensitive information.
 
 Finally, the encrypted result is anchored on IPFS, and an NFT credential is issued on Lisk. This NFT acts as a credit "passport" and it can be presented to any protocol or company, but maintaining full control over who accesses their information.
