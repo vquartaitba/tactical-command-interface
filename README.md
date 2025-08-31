@@ -6,8 +6,8 @@ Through a multi-chain architecture, we leverage the power of artificial intellig
 
 Our Website: https://tactical-command-interface-rzif.vercel.app/
 
-# Link to spanish pitch: https://www.youtube.com/watch?v=iG-zyMTQSL8
-# Link to english pitch: https://www.youtube.com/watch?v=M2jMUYokXsY&feature=youtu.be
+Link to spanish pitch: https://www.youtube.com/watch?v=iG-zyMTQSL8
+Link to english pitch: https://www.youtube.com/watch?v=M2jMUYokXsY&feature=youtu.be
 
 ## 🎯 The Problem: The Credit Access Gap
 
