@@ -71,17 +71,3 @@ Construimos un **sistema unificado de identidad y reputación crediticia** que c
 * **Flare** → Oráculo de datos robusto con su **State Connector**, ideal para traer información del mundo real de manera verificable.
 * **Zama (FHE)** → Permite cálculos sobre datos encriptados sin necesidad de desencriptarlos → privacidad garantizada y cumplimiento regulatorio.
 
----
-
-## 🎯 **En Resumen**
-
-Estamos construyendo el **primer sistema de reputación crediticia cross-chain**, que resuelve la exclusión financiera con:
-
-* Identidad digital confiable.
-* Datos crediticios verificables.
-* Puntaje calculado con privacidad total.
-* Un token portable que abre acceso a crédito en fintechs, bancos y DeFi.
-
-⚡ **Pitch line:**
-*“Un ecosistema donde la identidad y el crédito son portables, privados y verificables: acceso financiero global sin comprometer la privacidad del usuario.”*
-
