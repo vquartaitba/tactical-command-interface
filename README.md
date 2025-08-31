@@ -56,7 +56,7 @@ Construimos un **sistema unificado de identidad y reputación crediticia** que c
 
 ### **4. Puntaje Final y Uso (Lisk + Filecoin)**
 
-* Se acuña un **Score SBT** en Lisk con metadatos del puntaje.
+* Se guarda un **Score SBT** a través de un contrato en Lisk con datos del puntaje y de la persona.
 * Los registros y proofs quedan almacenados en Filecoin/IPFS, asegurando transparencia y auditoría.
 * El usuario puede usar este puntaje portable con fintechs, bancos o DeFi apps.
 
