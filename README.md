@@ -1,11 +1,3 @@
-Genial 🙌 — te armo un **documento narrativo completo** que arranca con la problemática, presenta la solución en alto nivel, después entra en el pipeline detallado y termina explicando **por qué elegimos cada tecnología**.
-
----
-
-# 📄 Descripción del Proyecto: Identidad y Puntaje Crediticio Cross-Chain con IA
-
----
-
 ## 🚨 **Problemática a Resolver**
 
 Millones de personas en el mundo, especialmente en economías emergentes, carecen de acceso a servicios financieros formales porque:
@@ -93,6 +85,3 @@ Estamos construyendo el **primer sistema de reputación crediticia cross-chain**
 ⚡ **Pitch line:**
 *“Un ecosistema donde la identidad y el crédito son portables, privados y verificables: acceso financiero global sin comprometer la privacidad del usuario.”*
 
----
-
-¿Querés que te arme ahora una versión **tipo “one-pager para inversores”** (resumen ejecutivo + diagrama visual + métricas de mercado)?
