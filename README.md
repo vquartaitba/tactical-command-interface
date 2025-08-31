@@ -1,129 +1,59 @@
-## 🚨 **Problemática a Resolver**
+# Crypto Credit Score – Aleph Hackathon Project
 
-Millones de personas en el mundo, especialmente en economías emergentes, carecen de acceso a servicios financieros formales porque:
+This project introduces a decentralized platform for generating a reliable, portable, and private credit score, designed for the financial inclusion of individuals without access to traditional systems.
 
-* No tienen historial bancario suficiente.
-* La información crediticia está fragmentada entre múltiples fuentes.
-* Los sistemas actuales exponen datos sensibles, comprometiendo la privacidad.
-* Los procesos de scoring tradicionales no son transparentes ni portables.
+Through a multi-chain architecture, we leverage the power of artificial intelligence and advanced cryptography to create a sovereign digital identity and a score that the user controls at all times.
 
-Esto genera exclusión financiera, dificulta el acceso a préstamos justos y limita la inclusión en la economía digital.
+## 🎯 The Problem: The Credit Access Gap
 
----
+Millions of people worldwide lack access to fair financial services because they do not have a formal credit history. This financial "invisibility" prevents them from obtaining loans, insurance, or even renting a home, creating a significant barrier to their economic and personal development.
 
-## 💡 **Nuestra Solución (visión general)**
+Current systems are centralized, opaque, and not adapted to the new digital and on-chain economy, leaving out a large portion of the global population.
 
-Construimos un **sistema unificado de identidad y reputación crediticia** que combina **blockchain, oráculos de datos, IA y criptografía avanzada** para:
+## 💡 Our Solution: A Sovereign Credit Score
 
-1. **Verificar identidad digital** de manera portable y auditable.
-2. **Recolectar datos financieros y de consumo reales**, validados criptográficamente.
-3. **Calcular un puntaje crediticio con IA sobre datos encriptados** (privacidad total).
-4. **Emitir un Soulbound Token (SBT)** que representa ese puntaje y que el usuario puede usar en fintechs, bancos o protocolos DeFi.
+Our platform solves this problem through a decentralized workflow that guarantees the security, privacy, and portability of user data.
 
----
+The solution is structured around three fundamental pillars:
 
-## 🛠️ **La Solución en Detalle**
+- **Verified Digital Identity:** The user creates a sovereign digital identity anchored on the blockchain. Verification data (KYC) is stored immutably on Filecoin/IPFS, and a Soulbound Token (SBT) is issued on Lisk as non-transferable proof of identity. This creates a foundation of trust for financial institutions.
 
-### **1. Identidad Digital (Lisk + Filecoin)**
+- **Real-World Data:** Through the Flare State Connector, the platform securely queries APIs from authorized sources (banks, telcos, services) to obtain the necessary data for analysis. This ensures the score is based on verifiable information, not self-declared data.
 
-* El usuario conecta su wallet y completa verificación de identidad (KYC).
-* Los datos validados se almacenan en **Filecoin/IPFS**, generando un CID inmutable.
-* Se emite un **SBT de identidad en Lisk**, que representa la existencia de esa identidad validada.
+- **Private AI Calculation:** Here lies the main innovation. The collected data is sent to the Zama network (fhEVM), where a Machine Learning model calculates the score. Thanks to Fully Homomorphic Encryption (FHE), the entire process is performed on encrypted data. Neither the AI nor any intermediary ever sees the user's sensitive information.
 
-📌 Esto crea una **identidad digital confiable y portable**, aceptada dentro del ecosistema.
+Finally, the encrypted result is anchored on IPFS, and an NFT credential is issued on Lisk. This NFT acts as a credit "passport" that the user can present to any protocol or company, maintaining full control over who accesses their information.
 
----
+## 🛠️ Applied Technologies and Their Benefits
 
-### **2. Solicitud de Puntaje Crediticio (Flare)**
+| Technology       | Role in the Project                                                                 | Key Benefit                                                                                          |
+|------------------|--------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| **Lisk**         | Identity and Portability: Issuance of the identity SBT and the NFT containing the score. | Low costs, high speed, and EVM compatibility. Enables portability and user-managed credentials.      |
+| **Filecoin / IPFS** | Decentralized Storage: Stores verified metadata and the encrypted score result.     | Immutability and censorship resistance. Ensures verified data cannot be altered and remains available.|
+| **Zama (fhEVM)** | Score Calculation with Absolute Privacy: Execution of the AI model on encrypted data. | Total privacy via FHE. Complex computations without exposing sensitive information.                  |
+| **Flare**        | Off-Chain Data Oracle: Securely connects the blockchain with real-world APIs.         | Reliability and verifiability. Scores are based on real, trusted data.                               |
+| **Machine Learning** | Precision and Robustness: Models (LightGBM, Logistic Regression) compute the score. | Financial-grade quality using industry-proven techniques.                                             |
+| **Vercel**       | Frontend and User Experience: Web app deployment for onboarding.                      | High performance and global scalability with a modern, accessible UI.                                 |
 
-* Una fintech solicita el puntaje de un usuario.
-* El **State Connector de Flare** consulta múltiples fuentes externas (bancos, telcos, servicios).
-* Los validadores de Flare generan una **atestación criptográfica**, garantizando integridad y veracidad.
+## 📜 Deployed Contracts
 
-📌 Garantiza que los datos usados para el scoring son **reales y auditables**, no autodeclarados.
+Below are the addresses of the smart contracts deployed on their respective testnets.
 
----
+| Component / Role           | Network (Chain)                | Contract Address                                   |
+|---------------------------:|--------------------------------|----------------------------------------------------|
+| Score Calculation (AI)     | Zama / fhEVM (**ZEMA**)        | `0x59A3b5AfB6bACdbEc53bc1aB13af08e20db2748c`       |
+| CID Registry (Link to IPFS)| Filecoin EVM (**Calibration**) | `0x749777126B405832d92520Ec94D22B9685595027`       |
+| Score SBT / NFT Credential | Lisk EVM (**Sepolia**)         | `0x686BABbCa7924470f8c4343C6b4b702a0e0Bb5eb`       |
 
-### **3. Cálculo con IA y Privacidad Total (Zama FHE)**
-
-* Los datos viajan encriptados hacia la red de **Zama**.
-* Gracias a la **Encriptación Homomórfica Completa (FHE)**, un modelo de IA procesa la información sin descifrarla.
-* Se obtiene un puntaje crediticio encriptado que vuelve al ecosistema.
-
-📌 **Privacidad absoluta**: los datos nunca quedan expuestos, ni siquiera al modelo de IA.
-
----
-
-### **4. Puntaje Final y Uso (Lisk + Filecoin)**
-
-* Se guarda un **Score SBT** a través de un contrato en Lisk con datos del puntaje y de la persona.
-* Los registros y proofs quedan almacenados en Filecoin/IPFS, asegurando transparencia y auditoría.
-* El usuario puede usar este puntaje portable con fintechs, bancos o DeFi apps.
-
-📌 Crea una **capa de reputación financiera global y resistente a censura**, que empodera al usuario.
-
----
-
-
-## ⚙️ **Por qué elegimos cada tecnología**
-
-* ## 🏗️ **1. Lisk Blockchain **
-Plataforma accesible para identidad y SBTs, con gran enfoque en usabilidad y adopción de dApps. Perfecta para representar identidad y reputación en tokens no transferibles.
-
-- **DPoS**: Finalidad en 2-3 segundos vs 12s de Ethereum
-- **15,000+ TPS**: 500x más transacciones que Ethereum
-- **Costos bajos**: 100x más barato que Ethereum mainnet
-- **SDK TypeScript**: Desarrollo rápido y modular
-
-* ## 🔐 **2. Zama Network - Computación Confidencial**
-Permite cálculos sobre datos encriptados sin necesidad de desencriptarlos → privacidad garantizada y cumplimiento regulatorio.
-
-- **Privacidad total**: Datos nunca se desencriptan
-- **Compliance automático**: GDPR/CCPA built-in
-- **AI integration**: Procesamiento en datos encriptados
-- **Seguridad cuántica**: Resistente a ataques futuros
-  
-## 🌐 *3. Flare Network - Verificación Cross-Chain*
-Oráculo de datos robusto con su **State Connector**, ideal para traer información del mundo real de manera verificable.
-
-- **State Connector**: Acceso nativo a APIs Web2
-- **Cross-chain built-in**: Diseñado para interoperabilidad
-- **Costos bajos**: 10-50x más barato que Chainlink
-- **100+ validadores**: Mayor descentralización
-
-## 📁 *4. Filecoin/IPFS - Almacenamiento Descentralizado*
-Almacenamiento descentralizado, inmutable y auditable para datos sensibles y trazabilidad.
-
-- **Hash-based**: Identificación por contenido criptográfico
-- **100% descentralizado**: Sin punto único de falla
-- **10-100x más barato**: Que almacenamiento en la nube
-- **Resistente a censura**: Imposible de bloquear
-
-## 📜 Contratos desplegados
-
-| Componente / Rol                     | Red (chain)              | Dirección |
-|-------------------------------------|--------------------------|-----------|
-| **ZAMA (cálculo/score)**            | Zama / fhEVM (ZEMA)      | `0x59A3b5AfB6bACdbEc53bc1aB13af08e20db2748c` |
-| **CID Registry (vínculo a IPFS)**   | Filecoin EVM             | `0x749777126B405832d92520Ec94D22B9685595027` |
-| **Score SBT / NFT**                 | Lisk EVM                 | `0x686BABbCa7924470f8c4343C6b4b702a0e0Bb5eb` |
-
-### 🔗 Enlaces a contratos (Testnets)
+## 🔗 Links to Block Explorers (Testnets)
 
 - ZEMA (Zama Testnet)
   https://explorer.testnet.zama.cloud/address/0x59A3b5AfB6bACdbEc53bc1aB13af08e20db2748c
 
-- CID Registry (Filecoin Calibration)
+  - CID Registry (Filecoin Calibration)
   https://filecoin-testnet.blockscout.com/address/0x749777126B405832d92520Ec94D22B9685595027
 
 - Score SBT / NFT (Lisk Sepolia)
   https://sepolia-blockscout.lisk.com/address/0x686BABbCa7924470f8c4343C6b4b702a0e0Bb5eb
 
-
-## 🎯 *¿Por Qué Esta Arquitectura?*
-
-### *Ventajas Clave*
-- *Especialización*: Cada red hace se ocupa de una parte específica en la que se destaca
-- *Seguridad*: Múltiples capas de protección
-- *Escalabilidad*: Cada red escala independientemente
-- *Innovación*: Fácil integración de nuevas tecnologías
 
