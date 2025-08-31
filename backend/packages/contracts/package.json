@@ -1,0 +1,53 @@
+{
+  "name": "@zkredit/contracts",
+  "version": "1.0.0",
+  "description": "Smart contracts for the Zkredit protocol across multiple blockchains",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:lisk && npm run build:zama",
+    "build:lisk": "cd lisk && npm run build",
+    "build:zama": "cd zama && npm run build",
+    "test": "npm run test:lisk && npm run test:zama",
+    "test:lisk": "cd lisk && npm test",
+    "test:zama": "cd zama && npm test",
+    "deploy:lisk": "cd lisk && npm run deploy",
+    "deploy:zama": "cd zama && npm run deploy",
+    "lint": "npm run lint:lisk && npm run lint:zama",
+    "lint:lisk": "cd lisk && npm run lint",
+    "lint:zama": "cd zama && npm run lint",
+    "clean": "npm run clean:lisk && npm run clean:zama",
+    "clean:lisk": "cd lisk && npm run clean",
+    "clean:zama": "cd zama && npm run clean"
+  },
+  "keywords": [
+    "solidity",
+    "smart-contracts",
+    "blockchain",
+    "lisk",
+    "zama",
+    "fhe",
+    "zkredit"
+  ],
+  "author": "Zkredit Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@openzeppelin/contracts": "^4.9.0",
+    "hardhat": "^2.17.0",
+    "ethers": "^5.7.2",
+    "prettier": "^3.0.0",
+    "prettier-plugin-solidity": "^1.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zkredit/zkredit-protocol.git",
+    "directory": "packages/contracts"
+  },
+  "workspaces": [
+    "lisk",
+    "zama"
+  ]
+}

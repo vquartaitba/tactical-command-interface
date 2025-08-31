@@ -1,0 +1,49 @@
+{
+  "name": "@zkredit/scripts",
+  "version": "1.0.0",
+  "description": "Deployment and automation scripts for the Zkredit protocol",
+  "main": "index.js",
+  "scripts": {
+    "deploy:lisk": "ts-node deploy-lisk.ts",
+    "deploy:zama": "ts-node deploy-zama.ts",
+    "deploy:all": "npm run deploy:lisk && npm run deploy:zama",
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint . --ext .ts",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "deployment",
+    "automation",
+    "blockchain",
+    "smart-contracts",
+    "zkredit"
+  ],
+  "author": "Zkredit Team",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^5.7.2",
+    "dotenv": "^16.3.1",
+    "commander": "^11.1.0",
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.0.0",
+    "rimraf": "^5.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zkredit/zkredit-protocol.git",
+    "directory": "scripts"
+  }
+}

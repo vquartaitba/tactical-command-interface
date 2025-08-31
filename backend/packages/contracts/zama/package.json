@@ -1,0 +1,58 @@
+{
+  "name": "@zkredit/contracts-zama",
+  "version": "1.0.0",
+  "description": "Zama FHE smart contracts for the Zkredit protocol",
+  "main": "index.js",
+  "scripts": {
+    "build": "hardhat compile",
+    "build:sepolia": "hardhat clean && hardhat compile --network sepolia",
+    "test": "hardhat test",
+    "test:sepolia": "hardhat run scripts/test-sepolia.ts --network sepolia",
+    "deploy": "hardhat run scripts/deploy.ts --network zama",
+    "deploy:testnet": "hardhat run scripts/deploy.ts --network zamaTestnet",
+    "deploy:sepolia": "hardhat run scripts/deploy-sepolia.ts --network sepolia",
+    "deploy:zama": "hardhat run scripts/deploy-zama.ts --network zamaTestnet",
+    "deploy:local": "hardhat run scripts/deploy-local.ts --network hardhat",
+    "check:zama": "hardhat run scripts/check-zama-status.ts",
+    "estimate:sepolia": "hardhat run scripts/estimate-sepolia.ts --network sepolia",
+    "verify": "hardhat run scripts/verify.ts --network zamaTestnet",
+    "verify:sepolia": "hardhat run scripts/verify.ts --network sepolia",
+    "test:simple": "hardhat run scripts/simple-test.ts --network sepolia",
+    "test:existing": "hardhat run scripts/test-existing.ts --network sepolia",
+    "test:zama": "hardhat run scripts/test-zama.ts --network zamaTestnet",
+    "verify:contract": "hardhat verify --network sepolia",
+    "lint": "solhint 'contracts/**/*.sol'",
+    "clean": "hardhat clean"
+  },
+  "keywords": [
+    "solidity",
+    "smart-contracts",
+    "zama",
+    "fhe",
+    "zkredit",
+    "credit-score"
+  ],
+  "author": "Zkredit Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-verify": "^2.1.1",
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "@openzeppelin/contracts": "^4.9.0",
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^10.0.0",
+    "chai": "^4.3.0",
+    "ethereum-waffle": "^4.0.10",
+    "ethers": "^5.7.2",
+    "fhevm": "^0.4.0",
+    "hardhat": "^2.17.0",
+    "prettier": "^3.0.0",
+    "prettier-plugin-solidity": "^2.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

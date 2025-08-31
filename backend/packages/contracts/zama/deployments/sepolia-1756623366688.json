@@ -1,0 +1,11 @@
+{
+  "network": "sepolia",
+  "chainId": 11155111,
+  "contractAddress": "0x240B659a2917aC8D8FDAAccA76743160eC4c5308",
+  "deployer": "0x3214958dAacAf01A8A74a06787fD42B1a3117655",
+  "timestamp": "2025-08-31T06:56:06.514Z",
+  "blockNumber": 9101851,
+  "fheEnabled": true,
+  "encryptionType": "real-fhe",
+  "etherscanUrl": "https://sepolia.etherscan.io/address/0x240B659a2917aC8D8FDAAccA76743160eC4c5308"
+}
