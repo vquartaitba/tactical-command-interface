@@ -64,6 +64,41 @@ Construimos un **sistema unificado de identidad y reputación crediticia** que c
 
 ---
 
+
+## ⚙️ **Por qué elegimos cada tecnología**
+
+* ## 🏗️ **1. Lisk Blockchain **
+Plataforma accesible para identidad y SBTs, con gran enfoque en usabilidad y adopción de dApps. Perfecta para representar identidad y reputación en tokens no transferibles.
+
+- **DPoS**: Finalidad en 2-3 segundos vs 12s de Ethereum
+- **15,000+ TPS**: 500x más transacciones que Ethereum
+- **Costos bajos**: 100x más barato que Ethereum mainnet
+- **SDK TypeScript**: Desarrollo rápido y modular
+
+* ## 🔐 **2. Zama Network - Computación Confidencial**
+Permite cálculos sobre datos encriptados sin necesidad de desencriptarlos → privacidad garantizada y cumplimiento regulatorio.
+
+- **Privacidad total**: Datos nunca se desencriptan
+- **Compliance automático**: GDPR/CCPA built-in
+- **AI integration**: Procesamiento en datos encriptados
+- **Seguridad cuántica**: Resistente a ataques futuros
+  
+## 🌐 *3. Flare Network - Verificación Cross-Chain*
+Oráculo de datos robusto con su **State Connector**, ideal para traer información del mundo real de manera verificable.
+
+- **State Connector**: Acceso nativo a APIs Web2
+- **Cross-chain built-in**: Diseñado para interoperabilidad
+- **Costos bajos**: 10-50x más barato que Chainlink
+- **100+ validadores**: Mayor descentralización
+
+## 📁 *4. Filecoin/IPFS - Almacenamiento Descentralizado*
+Almacenamiento descentralizado, inmutable y auditable para datos sensibles y trazabilidad.
+
+- **Hash-based**: Identificación por contenido criptográfico
+- **100% descentralizado**: Sin punto único de falla
+- **10-100x más barato**: Que almacenamiento en la nube
+- **Resistente a censura**: Imposible de bloquear
+
 ## 📜 Contratos desplegados
 
 | Componente / Rol                     | Red (chain)              | Dirección |
@@ -73,10 +108,11 @@ Construimos un **sistema unificado de identidad y reputación crediticia** que c
 | **Score SBT / NFT**                 | Lisk EVM                 | `0x686BABbCa7924470f8c4343C6b4b702a0e0Bb5eb` |
 
 
-## ⚙️ **Por qué elegimos cada tecnología**
+## 🎯 *¿Por Qué Esta Arquitectura?*
 
-* **Lisk** → Plataforma accesible para identidad y SBTs, con gran enfoque en usabilidad y adopción de dApps. Perfecta para representar identidad y reputación en tokens no transferibles.
-* **Filecoin/IPFS** → Almacenamiento descentralizado, inmutable y auditable para datos sensibles y trazabilidad.
-* **Flare** → Oráculo de datos robusto con su **State Connector**, ideal para traer información del mundo real de manera verificable.
-* **Zama (FHE)** → Permite cálculos sobre datos encriptados sin necesidad de desencriptarlos → privacidad garantizada y cumplimiento regulatorio.
+### *Ventajas Clave*
+- *Especialización*: Cada red hace se ocupa de una parte específica en la que se destaca
+- *Seguridad*: Múltiples capas de protección
+- *Escalabilidad*: Cada red escala independientemente
+- *Innovación*: Fácil integración de nuevas tecnologías
 
