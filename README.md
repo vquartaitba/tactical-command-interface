@@ -4,11 +4,17 @@ This project introduces a decentralized platform for generating a reliable, port
 
 Through a multi-chain architecture, we leverage the power of artificial intelligence and advanced cryptography to create a sovereign digital identity and a score that the user controls at all times.
 
-Our Website: https://tactical-command-interface-rzif.vercel.app/
+## Presentation
 
-Link to spanish pitch: https://www.youtube.com/watch?v=iG-zyMTQSL8
+[ZKredit - Presentation](https://www.figma.com/slides/C7KlhrgR4PLNt3myLOeMPQ/ZKREDIT?node-id=1-1814&t=spNrWGRY49ZMdqb0-1)
 
-Link to english pitch: https://www.youtube.com/watch?v=M2jMUYokXsY&feature=youtu.be
+[Video introducing ZKredit - version español](https://www.youtube.com/watch?v=iG-zyMTQSL8)
+
+[Video introducing ZKredit - English version](https://www.youtube.com/watch?v=M2jMUYokXsY&feature=youtu.be)
+
+[ZKredit - Website](https://tactical-command-interface-rzif.vercel.app/)
+
+
 
 ## 🎯 The Problem: The Credit Access Gap
 
