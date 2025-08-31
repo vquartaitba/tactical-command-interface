@@ -1,8 +1,10 @@
-# Crypto Credit Score – Aleph Hackathon Project
+# ZKredit 
 
 This project introduces a decentralized platform for generating a reliable, portable, and private credit score, designed for the financial inclusion of individuals without access to traditional systems.
 
 Through a multi-chain architecture, we leverage the power of artificial intelligence and advanced cryptography to create a sovereign digital identity and a score that the user controls at all times.
+
+Our Website: https://tactical-command-interface-rzif.vercel.app/
 
 ## 🎯 The Problem: The Credit Access Gap
 
@@ -50,7 +52,7 @@ Below are the addresses of the smart contracts deployed on their respective test
 - ZEMA (Zama Testnet)
   https://explorer.testnet.zama.cloud/address/0x59A3b5AfB6bACdbEc53bc1aB13af08e20db2748c
 
-  - CID Registry (Filecoin Calibration)
+- CID Registry (Filecoin Calibration)
   https://filecoin-testnet.blockscout.com/address/0x749777126B405832d92520Ec94D22B9685595027
 
 - Score SBT / NFT (Lisk Sepolia)
