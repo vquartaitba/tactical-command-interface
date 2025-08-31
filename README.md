@@ -6,6 +6,9 @@ Through a multi-chain architecture, we leverage the power of artificial intellig
 
 Our Website: https://tactical-command-interface-rzif.vercel.app/
 
+# Link to spanish pitch: https://www.youtube.com/watch?v=iG-zyMTQSL8
+# Link to english pitch: https://www.youtube.com/watch?v=M2jMUYokXsY&feature=youtu.be
+
 ## 🎯 The Problem: The Credit Access Gap
 
 Millions of people worldwide lack access to fair financial services because they do not have a formal credit history. This financial "invisibility" prevents them from obtaining loans, insurance, or even renting a home, creating a significant barrier to their economic and personal development.
