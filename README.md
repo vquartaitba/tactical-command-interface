@@ -107,6 +107,17 @@ Almacenamiento descentralizado, inmutable y auditable para datos sensibles y tra
 | **CID Registry (vínculo a IPFS)**   | Filecoin EVM             | `0x749777126B405832d92520Ec94D22B9685595027` |
 | **Score SBT / NFT**                 | Lisk EVM                 | `0x686BABbCa7924470f8c4343C6b4b702a0e0Bb5eb` |
 
+### 🔗 Enlaces a contratos (Testnets)
+
+- ZEMA (Zama Testnet)
+  https://explorer.testnet.zama.cloud/address/0x59A3b5AfB6bACdbEc53bc1aB13af08e20db2748c
+
+- CID Registry (Filecoin Calibration)
+  https://filecoin-testnet.blockscout.com/address/0x749777126B405832d92520Ec94D22B9685595027
+
+- Score SBT / NFT (Lisk Sepolia)
+  https://sepolia-blockscout.lisk.com/address/0x686BABbCa7924470f8c4343C6b4b702a0e0Bb5eb
+
 
 ## 🎯 *¿Por Qué Esta Arquitectura?*
 
