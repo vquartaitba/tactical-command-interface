@@ -244,20 +244,20 @@ function ProgressRow({ label, value, color }: { label: string; value: number; co
 function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: () => void }) {
   const radarData = [
     // Off-chain (FICO)
-    { axis: "Payment history (35%)", value: 96 },
-    { axis: "Credit utilization (30%)", value: 59 },
-    { axis: "Credit age (15%)", value: 72 },
-    { axis: "Credit mix (10%)", value: 65 },
-    { axis: "Credit inquiries (10%)", value: 80 },
+    { axis: "Historial de pagos (35%)", value: 96 },
+    { axis: "Utilización de crédito (30%)", value: 59 },
+    { axis: "Antigüedad crediticia (15%)", value: 72 },
+    { axis: "Mix de crédito (10%)", value: 65 },
+    { axis: "Consultas de crédito (10%)", value: 80 },
     // On-chain (Crypto)
-    { axis: "Total asset", value: 68 },
-    { axis: "DApp interactions", value: 72 },
+    { axis: "Activos totales", value: 68 },
+    { axis: "Interacción con DApps", value: 72 },
     { axis: "Tx otras wallets", value: 85 },
-    { axis: "Liquidation history", value: 92 },
-    { axis: "Loan ratios", value: 76 },
-    { axis: "Investment/Total asset", value: 64 },
-    { axis: "Trustworthiness assets", value: 70 },
-    { axis: "Wallet clustering", value: 60 },
+    { axis: "Historial de liquidaciones", value: 92 },
+    { axis: "Ratios de deuda", value: 76 },
+    { axis: "Inversión/Activos totales", value: 64 },
+    { axis: "Confiabilidad de activos", value: 70 },
+    { axis: "Clustering de wallets", value: 60 },
   ]
   const radarConfig = {
     score: {
@@ -303,10 +303,55 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
               <SectionRow label="Riesgo" value={selected.riesgo.toUpperCase()} />
             </div>
             <div className="p-3 bg-neutral-800 rounded md:col-span-2">
-              <SectionRow label="Wallet" value={selected.walletAddress || "—"} />
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-neutral-400">Wallet</span>
+                {selected.walletAddress ? (
+                  <a
+                    href={`https://etherscan.io/address/${selected.walletAddress}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white font-mono underline decoration-dotted hover:text-orange-400"
+                  >
+                    {selected.walletAddress}
+                  </a>
+                ) : (
+                  <span className="text-white font-mono">—</span>
+                )}
+              </div>
             </div>
             <div className="p-3 bg-neutral-800 rounded md:col-span-2">
-              <SectionRow label="ENS" value={selected.ensName || "—"} />
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-neutral-400">ENS</span>
+                {selected.ensName ? (
+                  <a
+                    href={`https://app.ens.domains/${selected.ensName}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white font-mono underline decoration-dotted hover:text-orange-400"
+                  >
+                    {selected.ensName}
+                  </a>
+                ) : (
+                  <span className="text-white font-mono">—</span>
+                )}
+              </div>
+            </div>
+            <div className="p-3 bg-neutral-800 rounded md:col-span-4">
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-neutral-400">Twitter</span>
+                {selected.twitterUrl ? (
+                  <a
+                    href={selected.twitterUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white font-mono underline decoration-dotted hover:text-orange-400"
+                  >
+                    {selected.twitterUrl}
+                  </a>
+                ) : (
+                  <span className="text-white font-mono">—</span>
+                )}
+              </div>
             </div>
           </div>
 
@@ -321,7 +366,7 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                   tick={{ fill: "#a3a3a3", fontSize: 12, fontFamily: "ui-sans-serif, system-ui, -apple-system" }}
                   tickLine={false}
                   tickMargin={12}
-                  tickFormatter={(v: string) => v.replace("Inversión/Activos", "Inv./Activos")}
+                  tickFormatter={(v: string) => v.replace("Inversión/Activos totales", "Inv./Activos")}
                 />
                 <PolarGrid />
                 <Radar dataKey="score" stroke="#f97316" fill="#f97316" fillOpacity={0.35} />
@@ -344,6 +389,9 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                     <ProgressRow label="Pagos a término últimos 24m" value={96} color="bg-green-500" />
                     <SectionRow label="Pagos atrasados (12m)" value={"2"} />
                     <SectionRow label="Incumplimientos" value={"0"} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      Payment history accounts for 35% of your FICO credit scores. On-time payments can be helpful to your score, while late or missed payments can result in lost credit score points.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -355,6 +403,9 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                     <ProgressRow label="Utilización promedio" value={41} color="bg-orange-500" />
                     <SectionRow label="Líneas abiertas" value={"5"} />
                     <SectionRow label="Crédito total" value={toUSDString("3.200.000")} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      Credit utilization refers to the percentage of available credit that’s in use at any given time. This factor accounts for 30% of FICO score calculations.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -365,6 +416,9 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                   <CardContent className="space-y-3">
                     <SectionRow label="Antigüedad promedio" value={"4.8 años"} />
                     <SectionRow label="Cuenta más antigua" value={"8.2 años"} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      Credit age measures the average length of time for which someone has been using credit. The older someone’s credit age is, the better. This factor accounts for 15% of FICO credit score calculations.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -375,6 +429,9 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                   <CardContent className="space-y-3">
                     <SectionRow label="Revolving / Cuotas" value={"60% / 40%"} />
                     <SectionRow label="Hipotecario/Auto/Consumo" value={"0 / 1 / 4"} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      FICO also considers the types of credit someone uses (i.e., installment loans versus revolving credit). Credit mix makes up 10% of FICO credit score calculations.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -385,12 +442,52 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                   <CardContent className="space-y-3">
                     <SectionRow label="Consultas duras (12m)" value={"2"} />
                     <SectionRow label="Última consulta" value={"hace 3 meses"} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      Credit inquiries account for 10% of your FICO credit score. A new inquiry is registered on your credit report following a hard credit check. Checking your own credit reports doesn’t trigger a hard credit pull or affect your credit score.
+                    </p>
                   </CardContent>
                 </Card>
               </div>
             </TabsContent>
             <TabsContent value="crypto" className="mt-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Card className="bg-neutral-900 border-neutral-700 md:col-span-2">
+                  <CardHeader>
+                    <CardTitle className="text-sm text-neutral-300">Identidad on-chain</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-400">Wallet</span>
+                      {selected.walletAddress ? (
+                        <a
+                          href={`https://etherscan.io/address/${selected.walletAddress}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white font-mono underline decoration-dotted hover:text-orange-400"
+                        >
+                          {selected.walletAddress}
+                        </a>
+                      ) : (
+                        <span className="text-white font-mono">—</span>
+                      )}
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-neutral-400">ENS</span>
+                      {selected.ensName ? (
+                        <a
+                          href={`https://app.ens.domains/${selected.ensName}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white font-mono underline decoration-dotted hover:text-orange-400"
+                        >
+                          {selected.ensName}
+                        </a>
+                      ) : (
+                        <span className="text-white font-mono">—</span>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
                 <Card className="bg-neutral-900 border-neutral-700">
                   <CardHeader>
                     <CardTitle className="text-sm text-neutral-300">Total de activos</CardTitle>
@@ -398,6 +495,9 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                   <CardContent className="space-y-3">
                     <SectionRow label="Valor estimado" value={toUSDString("5.6M")} />
                     <SectionRow label="N° de activos" value={"37"} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      The total asset represents the financial strength of accounts.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -408,6 +508,9 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                   <CardContent className="space-y-3">
                     <SectionRow label="DApps reputadas" value={"18"} />
                     <SectionRow label="Riesgo de contrapartes" value={"BAJO"} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      This parameter reflects the trustworthiness of the wallets. It evaluates the transacting behavior, type and reputation of Dapps they interact with.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -418,6 +521,9 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                   <CardContent className="space-y-3">
                     <SectionRow label="Tx con wallets de alta confianza" value={"72%"} />
                     <SectionRow label="Tx con wallets de bajo crédito" value={"3%"} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      To evaluate wallet credit accurately, we examine its interactions with other wallets. Higher wallet credit results from numerous transactions with trustworthy wallets, while transactions with wallets holding poor credit lower the wallet’s overall credit score.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -428,6 +534,9 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                   <CardContent className="space-y-3">
                     <SectionRow label="Liquidaciones" value={"0"} />
                     <SectionRow label="Antigüedad de cuenta" value={"3.4 años"} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      This parameter reflects the wallet’s credit risk based on assessing the age of the account along with the number of liquidations and liquidated amount.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -438,6 +547,9 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                   <CardContent className="space-y-3">
                     <ProgressRow label="Loan-to-Asset" value={24} color="bg-orange-500" />
                     <SectionRow label="Deuda total" value={toUSDString("820k")} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      Loan ratios (debt ratios) represent the debt position of an account.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -448,6 +560,9 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                   <CardContent className="space-y-3">
                     <ProgressRow label="Investment/Total Asset" value={38} color="bg-green-500" />
                     <SectionRow label="Activeness" value={"ALTA"} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      This ratio represents the activeness of the account in the crypto business. It indicates how much percentage of the total asset that the account puts into financing activities.
+                    </p>
                   </CardContent>
                 </Card>
 
@@ -458,6 +573,22 @@ function UserDetail({ selected, onClose }: { selected: PeopleRequest; onClose: (
                   <CardContent className="space-y-3">
                     <SectionRow label="Valor en blue-chips" value={toUSDString("3.1M")} />
                     <SectionRow label="Exposición a alto riesgo" value={"7%"} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      The credit of a wallet can be seen by the value and trustworthiness of the digital assets it holds.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-neutral-900 border-neutral-700 md:col-span-2">
+                  <CardHeader>
+                    <CardTitle className="text-sm text-neutral-300">Clustering de wallets</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <SectionRow label="Posibles wallets relacionadas" value={"3"} />
+                    <SectionRow label="Confianza del cluster" value={"ALTA"} />
+                    <p className="text-xs text-neutral-500 leading-relaxed">
+                      Clustering the wallets para encontrar wallets cercanas que sean de la misma persona que use para fraude.
+                    </p>
                   </CardContent>
                 </Card>
               </div>

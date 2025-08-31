@@ -16,21 +16,21 @@ export default function CommandCenterPage() {
   const [selectedUser, setSelectedUser] = React.useState<PeopleRequest | null>(null)
   // Donut data from FICO buckets
   const chartData = [
-    { key: "excellent", label: "Excellent (800–850)", usuarios: ficoBuckets["Excellent"].count, fill: "var(--color-excellent)" },
-    { key: "veryGood", label: "Very Good (740–799)", usuarios: ficoBuckets["Very Good"].count, fill: "var(--color-veryGood)" },
-    { key: "good", label: "Good (670–739)", usuarios: ficoBuckets["Good"].count, fill: "var(--color-good)" },
-    { key: "fair", label: "Fair (580–669)", usuarios: ficoBuckets["Fair"].count, fill: "var(--color-fair)" },
-    { key: "poor", label: "Poor (300–579)", usuarios: ficoBuckets["Poor"].count, fill: "var(--color-poor)" },
+    { key: "excellent", label: "Excelente (800–850)", usuarios: ficoBuckets["Excellent"].count, fill: "var(--color-excellent)" },
+    { key: "veryGood", label: "Muy bueno (740–799)", usuarios: ficoBuckets["Very Good"].count, fill: "var(--color-veryGood)" },
+    { key: "good", label: "Bueno (670–739)", usuarios: ficoBuckets["Good"].count, fill: "var(--color-good)" },
+    { key: "fair", label: "Aceptable (580–669)", usuarios: ficoBuckets["Fair"].count, fill: "var(--color-fair)" },
+    { key: "poor", label: "Bajo (300–579)", usuarios: ficoBuckets["Poor"].count, fill: "var(--color-poor)" },
   ]
   const totalUsuarios = chartData.reduce((acc, curr) => acc + curr.usuarios, 0)
   const chartConfig = {
     usuarios: { label: "Usuarios" },
     // diferentes niveles de naranja
-    excellent: { label: "Excellent", color: "#fb923c" },
-    veryGood: { label: "Very Good", color: "#f59e0b" },
-    good: { label: "Good", color: "#f97316" },
-    fair: { label: "Fair", color: "#ea580c" },
-    poor: { label: "Poor", color: "#c2410c" },
+    excellent: { label: "Excelente", color: "#fb923c" },
+    veryGood: { label: "Muy bueno", color: "#f59e0b" },
+    good: { label: "Bueno", color: "#f97316" },
+    fair: { label: "Aceptable", color: "#ea580c" },
+    poor: { label: "Bajo", color: "#c2410c" },
   } as const
 
   // Time series (mock) for additional charts (12 months)
@@ -211,15 +211,15 @@ export default function CommandCenterPage() {
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-xs text-green-500 font-medium">Excellent (800–850)</span>
+                  <span className="text-xs text-green-500 font-medium">Excelente (800–850)</span>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400">Excellent</span>
+                    <span className="text-neutral-400">Excelente</span>
                     <span className="text-white font-bold font-mono">1,240</span>
                   </div>
                   <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400">Very Good (740–799)</span>
+                    <span className="text-neutral-400">Muy bueno (740–799)</span>
                     <span className="text-white font-bold font-mono">2,156</span>
                   </div>
                 </div>
@@ -228,15 +228,15 @@ export default function CommandCenterPage() {
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                  <span className="text-xs text-orange-500 font-medium">Good / Fair (580–739)</span>
+                  <span className="text-xs text-orange-500 font-medium">Bueno / Aceptable (580–739)</span>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400">Good (670–739)</span>
+                    <span className="text-neutral-400">Bueno (670–739)</span>
                     <span className="text-white font-bold font-mono">3,421</span>
                   </div>
                   <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400">Fair (580–669)</span>
+                    <span className="text-neutral-400">Aceptable (580–669)</span>
                     <span className="text-white font-bold font-mono">2,890</span>
                   </div>
                 </div>
@@ -245,11 +245,11 @@ export default function CommandCenterPage() {
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                  <span className="text-xs text-red-500 font-medium">Poor (300–579)</span>
+                  <span className="text-xs text-red-500 font-medium">Bajo (300–579)</span>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between text-xs">
-                    <span className="text-neutral-400">Poor</span>
+                    <span className="text-neutral-400">Bajo</span>
                     <span className="text-white font-bold font-mono">892</span>
                   </div>
                 </div>
@@ -284,29 +284,74 @@ export default function CommandCenterPage() {
                   <div className="flex items-center justify-between text-sm"><span className="text-neutral-400">Riesgo</span><span className="text-white font-mono">{selectedUser.riesgo.toUpperCase()}</span></div>
                 </div>
                 <div className="p-3 bg-neutral-800 rounded md:col-span-2">
-                  <div className="flex items-center justify-between text-sm"><span className="text-neutral-400">Wallet</span><span className="text-white font-mono">{selectedUser.walletAddress || "—"}</span></div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-neutral-400">Wallet</span>
+                    {selectedUser.walletAddress ? (
+                      <a
+                        href={`https://etherscan.io/address/${selectedUser.walletAddress}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white font-mono underline decoration-dotted hover:text-orange-400"
+                      >
+                        {selectedUser.walletAddress}
+                      </a>
+                    ) : (
+                      <span className="text-white font-mono">—</span>
+                    )}
+                  </div>
                 </div>
                 <div className="p-3 bg-neutral-800 rounded md:col-span-2">
-                  <div className="flex items-center justify-between text-sm"><span className="text-neutral-400">ENS</span><span className="text-white font-mono">{selectedUser.ensName || "—"}</span></div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-neutral-400">ENS</span>
+                    {selectedUser.ensName ? (
+                      <a
+                        href={`https://app.ens.domains/${selectedUser.ensName}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white font-mono underline decoration-dotted hover:text-orange-400"
+                      >
+                        {selectedUser.ensName}
+                      </a>
+                    ) : (
+                      <span className="text-white font-mono">—</span>
+                    )}
+                  </div>
+                </div>
+                <div className="p-3 bg-neutral-800 rounded md:col-span-4">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-neutral-400">Twitter</span>
+                    {selectedUser.twitterUrl ? (
+                      <a
+                        href={selectedUser.twitterUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white font-mono underline decoration-dotted hover:text-orange-400"
+                      >
+                        {selectedUser.twitterUrl}
+                      </a>
+                    ) : (
+                      <span className="text-white font-mono">—</span>
+                    )}
+                  </div>
                 </div>
               </div>
               <div className="p-3 bg-neutral-800 rounded">
                 <div className="text-xs text-neutral-400 mb-2">Perfil de crédito (radar)</div>
                 <ChartContainer config={{}} className="mx-auto aspect-square max-h-[300px]">
                   <RadarChart data={[
-                    {axis:"Payment history (35%)",score:96},
-                    {axis:"Credit utilization (30%)",score:59},
-                    {axis:"Credit age (15%)",score:72},
-                    {axis:"Credit mix (10%)",score:65},
-                    {axis:"Credit inquiries (10%)",score:80},
-                    {axis:"Total asset",score:68},
-                    {axis:"DApp interactions",score:72},
+                    {axis:"Historial de pagos (35%)",score:96},
+                    {axis:"Utilización de crédito (30%)",score:59},
+                    {axis:"Antigüedad crediticia (15%)",score:72},
+                    {axis:"Mix de crédito (10%)",score:65},
+                    {axis:"Consultas de crédito (10%)",score:80},
+                    {axis:"Activos totales",score:68},
+                    {axis:"Interacción con DApps",score:72},
                     {axis:"Tx otras wallets",score:85},
-                    {axis:"Liquidation history",score:92},
-                    {axis:"Loan ratios",score:76},
-                    {axis:"Investment/Total asset",score:64},
-                    {axis:"Trustworthiness assets",score:70},
-                    {axis:"Wallet clustering",score:60},
+                    {axis:"Historial de liquidaciones",score:92},
+                    {axis:"Ratios de deuda",score:76},
+                    {axis:"Inversión/Activos totales",score:64},
+                    {axis:"Confiabilidad de activos",score:70},
+                    {axis:"Clustering de wallets",score:60},
                   ]} outerRadius={100}>
                     <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
                     <PolarAngleAxis dataKey="axis" tick={{ fill: "#a3a3a3", fontSize: 12 }} tickLine={false} />

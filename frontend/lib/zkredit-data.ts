@@ -14,6 +14,7 @@ export interface PeopleRequest {
   fuentes: Array<"on-chain" | "off-chain">
   walletAddress?: string
   ensName?: string
+  twitterUrl?: string
 }
 
 // Fuente única de verdad para solicitudes de historial crediticio (People)
@@ -29,8 +30,9 @@ export const peopleRequests: PeopleRequest[] = [
     riesgo: "bajo",
     kyc: "verificado",
     fuentes: ["on-chain", "off-chain"],
-    walletAddress: "0x4521...a1b2",
-    ensName: "user4521.eth",
+    walletAddress: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+    ensName: "vitalik.eth",
+    twitterUrl: "https://x.com/VitalikButerin",
   },
   {
     id: "REQ-2025-0911",
