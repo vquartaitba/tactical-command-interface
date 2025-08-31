@@ -24,7 +24,7 @@ The solution is structured around three fundamental pillars:
 
 - **Private AI Calculation:** Here lies the main innovation. The collected data is sent to the Zama network (fhEVM), where a Machine Learning model calculates the score. Thanks to Fully Homomorphic Encryption (FHE), the entire process is performed on encrypted data. Neither the AI nor any intermediary ever sees the user's sensitive information.
 
-Finally, the encrypted result is anchored on IPFS, and an NFT credential is issued on Lisk. This NFT acts as a credit "passport" that the user can present to any protocol or company, maintaining full control over who accesses their information.
+Finally, the encrypted result is anchored on IPFS, and an NFT credential is issued on Lisk. This NFT acts as a credit "passport" and it can be presented to any protocol or company, but maintaining full control over who accesses their information.
 
 ## 🛠️ Applied Technologies and Their Benefits
 
